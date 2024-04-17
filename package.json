@@ -1,0 +1,27 @@
+{
+  "name": "nextchatbotwebnew",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "antd": "^5.9.4",
+    "archiver": "^6.0.1",
+    "axios": "^1.5.1",
+    "moment": "^2.29.4",
+    "next": "^13.5.4",
+    "react": "^18.2.0",
+    "react-chatbot-kit": "^2.1.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "string-similarity-arraylist": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}

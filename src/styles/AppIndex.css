@@ -1,0 +1,48 @@
+.react-chatbot-kit-chat-bot-avatar-container{
+    background-image: url('../../public/assets/wcpclogo3.png');
+    background-size:cover;
+    background-position: center;
+    
+  }
+
+  .react-chatbot-kit-chat-bot-avatar-letter{
+    display: none;
+  }
+
+  .react-chatbot-kit-chat-message-container{
+    height: 88%;
+    overflow-x: hidden;
+  }
+
+  .chatbot-loader-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  
+#chatbot-loader #chatbot-loader-dot1 {
+    animation: load 1s infinite;
+  }
+  
+  #chatbot-loader #chatbot-loader-dot2 {
+    animation: load 1s infinite;
+    animation-delay: 0.2s;
+  }
+  
+  #chatbot-loader #chatbot-loader-dot3 {
+    animation: load 1s infinite;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes load {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

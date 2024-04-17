@@ -1,0 +1,22 @@
+[
+    {
+        "type":"greeting",
+        "keywords":["hi","hello","please help me","help me","help","hi hello","hi hi","hello hello","hi wayne","hello wayne","good morning","good evening","good afternoon","do you know me","do you knew me","are you know me","are you knew me","you know me","do you know me?"],
+        "answer":"Hello! I'm here to help you."
+    },{
+        "type":"greeting",
+        "keywords":["how are you","how are you?","how are you ?"],
+        "answer":"I'm fine. How may I help you!"
+    },
+    {
+        "type":"greeting",
+        "keywords":["thanks","thanks you","thank you","thank","bye"],
+        "answer":"You're Welcome"
+    },
+    {
+        "type":"greeting",
+        "keywords":["welcome","ok","get lost"],
+        "answer":"thanks"
+    }
+]
+

@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"VM-MENDIXDEV-00-11996-stderr-1709627311076.txt","computername":"VM-MENDIXDEV-00","pid":11996,"type":"stderr","created":1709627311076},{"file":"VM-MENDIXDEV-00-11996-stdout-1709627311070.txt","computername":"VM-MENDIXDEV-00","pid":11996,"type":"stdout","created":1709627311070},{"file":"VM-MENDIXDEV-00-14244-stderr-1710053430062.txt","computername":"VM-MENDIXDEV-00","pid":14244,"type":"stderr","created":1710053430062},{"file":"VM-MENDIXDEV-00-14244-stderr-1710158205534.txt","computername":"VM-MENDIXDEV-00","pid":14244,"type":"stderr","created":1710158205534},{"file":"VM-MENDIXDEV-00-14244-stdout-1710053430040.txt","computername":"VM-MENDIXDEV-00","pid":14244,"type":"stdout","created":1710053430040},{"file":"VM-MENDIXDEV-00-14244-stdout-1710158205513.txt","computername":"VM-MENDIXDEV-00","pid":14244,"type":"stdout","created":1710158205513},{"file":"VM-MENDIXDEV-00-17852-stderr-1709618846046.txt","computername":"VM-MENDIXDEV-00","pid":17852,"type":"stderr","created":1709618846046},{"file":"VM-MENDIXDEV-00-17852-stdout-1709618846038.txt","computername":"VM-MENDIXDEV-00","pid":17852,"type":"stdout","created":1709618846038},{"file":"VM-MENDIXDEV-00-18224-stderr-1709610381005.txt","computername":"VM-MENDIXDEV-00","pid":18224,"type":"stderr","created":1709610381005},{"file":"VM-MENDIXDEV-00-18224-stdout-1709610380996.txt","computername":"VM-MENDIXDEV-00","pid":18224,"type":"stdout","created":1709610380996},{"file":"VM-MENDIXDEV-00-18344-stderr-1709640382799.txt","computername":"VM-MENDIXDEV-00","pid":18344,"type":"stderr","created":1709640382799},{"file":"VM-MENDIXDEV-00-18344-stdout-1709640382792.txt","computername":"VM-MENDIXDEV-00","pid":18344,"type":"stdout","created":1709640382792},{"file":"VM-MENDIXDEV-00-19248-stderr-1710262183030.txt","computername":"VM-MENDIXDEV-00","pid":19248,"type":"stderr","created":1710262183030},{"file":"VM-MENDIXDEV-00-19248-stdout-1710262183013.txt","computername":"VM-MENDIXDEV-00","pid":19248,"type":"stdout","created":1710262183013},{"file":"VM-MENDIXDEV-00-19504-stderr-1709845068052.txt","computername":"VM-MENDIXDEV-00","pid":19504,"type":"stderr","created":1709845068052},{"file":"VM-MENDIXDEV-00-19504-stdout-1709845068037.txt","computername":"VM-MENDIXDEV-00","pid":19504,"type":"stdout","created":1709845068037},{"file":"VM-MENDIXDEV-00-19856-stderr-1709635776129.txt","computername":"VM-MENDIXDEV-00","pid":19856,"type":"stderr","created":1709635776129},{"file":"VM-MENDIXDEV-00-19856-stdout-1709635776121.txt","computername":"VM-MENDIXDEV-00","pid":19856,"type":"stdout","created":1709635776121},{"file":"VM-MENDIXDEV-00-3120-stderr-1709949045544.txt","computername":"VM-MENDIXDEV-00","pid":3120,"type":"stderr","created":1709949045544},{"file":"VM-MENDIXDEV-00-3120-stdout-1709949045526.txt","computername":"VM-MENDIXDEV-00","pid":3120,"type":"stdout","created":1709949045526},{"file":"VM-MENDIXDEV-00-5924-stderr-1709740294529.txt","computername":"VM-MENDIXDEV-00","pid":5924,"type":"stderr","created":1709740294529},{"file":"VM-MENDIXDEV-00-5924-stdout-1709740294513.txt","computername":"VM-MENDIXDEV-00","pid":5924,"type":"stdout","created":1709740294513}];
+        var lastUpdated = 1710262185692;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>
